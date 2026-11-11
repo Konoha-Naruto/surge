@@ -1,0 +1,110 @@
+# NAME: AppleServices
+# AUTHOR: blackmatrix7 / HotKids (surge ruleset)
+# SOURCE: blackmatrix7 AppleID + iCloud + Apple，APNs 取 HotKids Apple/APNS
+# DESC: APNs、账号/激活、iCloud 等 Apple 基础服务（不含下载类）
+# DOMAIN: 5
+# DOMAIN-SUFFIX: 65
+# DOMAIN-KEYWORD: 7
+# IP-CIDR: 15
+# IP-CIDR6: 7
+# TOTAL: 99
+
+DOMAIN,appleid.apple.com
+DOMAIN,appleid.cdn-apple.com
+DOMAIN,gsa.apple.com
+DOMAIN,identity.apple.com
+DOMAIN,idmsa.apple.com
+DOMAIN-SUFFIX,aaplimg.com
+DOMAIN-SUFFIX,akadns.net
+DOMAIN-SUFFIX,apple-cloudkit.com
+DOMAIN-SUFFIX,apple-dns.net
+DOMAIN-SUFFIX,apple-icloud.cn
+DOMAIN-SUFFIX,apple-livephotoskit.com
+DOMAIN-SUFFIX,apple.com
+DOMAIN-SUFFIX,appleicloud.cn
+DOMAIN-SUFFIX,applemx-icloud.com
+DOMAIN-SUFFIX,apzones.com
+DOMAIN-SUFFIX,cdn-apple.com
+DOMAIN-SUFFIX,gc.apple.com
+DOMAIN-SUFFIX,icloud-apple.cn
+DOMAIN-SUFFIX,icloud-content.com
+DOMAIN-SUFFIX,icloud-content.com.cn
+DOMAIN-SUFFIX,icloud-isupport.com
+DOMAIN-SUFFIX,icloud-sandbox.com
+DOMAIN-SUFFIX,icloud.apple.com
+DOMAIN-SUFFIX,icloud.ch
+DOMAIN-SUFFIX,icloud.cn
+DOMAIN-SUFFIX,icloud.com
+DOMAIN-SUFFIX,icloud.com.cn
+DOMAIN-SUFFIX,icloud.de
+DOMAIN-SUFFIX,icloud.ee
+DOMAIN-SUFFIX,icloud.fi
+DOMAIN-SUFFIX,icloud.fr
+DOMAIN-SUFFIX,icloud.hu
+DOMAIN-SUFFIX,icloud.ie
+DOMAIN-SUFFIX,icloud.is
+DOMAIN-SUFFIX,icloud.jp
+DOMAIN-SUFFIX,icloud.lv
+DOMAIN-SUFFIX,icloud.net.cn
+DOMAIN-SUFFIX,icloud.om
+DOMAIN-SUFFIX,icloud.org
+DOMAIN-SUFFIX,icloud.pt
+DOMAIN-SUFFIX,icloud.ro
+DOMAIN-SUFFIX,icloud.se
+DOMAIN-SUFFIX,icloud.si
+DOMAIN-SUFFIX,icloud.sk
+DOMAIN-SUFFIX,icloud.vn
+DOMAIN-SUFFIX,icloudads.net
+DOMAIN-SUFFIX,icloudapple.cn
+DOMAIN-SUFFIX,icloudbox.net
+DOMAIN-SUFFIX,icloudbrowser.net
+DOMAIN-SUFFIX,icloude.com
+DOMAIN-SUFFIX,icloudhome.com
+DOMAIN-SUFFIX,icloudmail.net
+DOMAIN-SUFFIX,icloudmusic.net
+DOMAIN-SUFFIX,icloudnet.net
+DOMAIN-SUFFIX,icloudo.com
+DOMAIN-SUFFIX,icloudo.de
+DOMAIN-SUFFIX,icloudo.net
+DOMAIN-SUFFIX,icloudos.de
+DOMAIN-SUFFIX,icloudos.net
+DOMAIN-SUFFIX,icloudpay.net
+DOMAIN-SUFFIX,icloudsecure.net
+DOMAIN-SUFFIX,icloudsetup.com
+DOMAIN-SUFFIX,ios-icloud.com
+DOMAIN-SUFFIX,iwork.apple.com
+DOMAIN-SUFFIX,me.com
+DOMAIN-SUFFIX,myicloud.net
+DOMAIN-SUFFIX,mylcloud.net
+DOMAIN-SUFFIX,push.apple.com
+DOMAIN-SUFFIX,www-cdn.icloud.com.akadns.net
+DOMAIN-SUFFIX,wwwicloud.com
+DOMAIN-KEYWORD,apple-support.akadns.net
+DOMAIN-KEYWORD,apple.com.akadns.net
+DOMAIN-KEYWORD,apple.com.edgekey.net
+DOMAIN-KEYWORD,buy.itunes.apple.com
+DOMAIN-KEYWORD,icloud.com.akadns.net
+DOMAIN-KEYWORD,smp-device
+DOMAIN-KEYWORD,testflight
+IP-CIDR,139.178.128.0/18,no-resolve
+IP-CIDR,144.178.0.0/19,no-resolve
+IP-CIDR,144.178.36.0/22,no-resolve
+IP-CIDR,144.178.48.0/20,no-resolve
+IP-CIDR,17.0.0.0/8,no-resolve
+IP-CIDR,17.188.128.0/18,no-resolve
+IP-CIDR,17.188.20.0/23,no-resolve
+IP-CIDR,17.249.0.0/16,no-resolve
+IP-CIDR,17.252.0.0/16,no-resolve
+IP-CIDR,17.57.144.0/22,no-resolve
+IP-CIDR,192.35.50.0/24,no-resolve
+IP-CIDR,198.183.17.0/24,no-resolve
+IP-CIDR,205.180.175.0/24,no-resolve
+IP-CIDR,63.92.224.0/19,no-resolve
+IP-CIDR,65.199.22.0/23,no-resolve
+IP-CIDR6,2403:300::/32,no-resolve
+IP-CIDR6,2403:300:a42::/48,no-resolve
+IP-CIDR6,2403:300:a51::/48,no-resolve
+IP-CIDR6,2620:149::/32,no-resolve
+IP-CIDR6,2620:149:a44::/48,no-resolve
+IP-CIDR6,2a01:b740::/32,no-resolve
+IP-CIDR6,2a01:b740:a42::/48,no-resolve

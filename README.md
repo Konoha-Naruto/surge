@@ -20,6 +20,8 @@
 | media | `rules/media/BiliBili.list` | 53 |
 | media | `rules/media/BiliBiliIntl.list` | 11 |
 | media | `rules/media/ByteDance.list` | 961 |
+| apple | `rules/apple/AppleDownload.list` | 88 |
+| apple | `rules/apple/AppleServices.list` | 99 |
 
 ```ini
 [Rule]
@@ -27,7 +29,9 @@ RULE-SET,https://raw.githubusercontent.com/Konoha-Naruto/surge/main/rules/media/
 RULE-SET,https://raw.githubusercontent.com/Konoha-Naruto/surge/main/rules/media/BiliBili.list,哔哩哔哩
 ```
 
-来源 MetaCubeX geosite，转换脚本与说明见 [rules/README.md](rules/README.md)。
+来源 MetaCubeX geosite（media）与 blackmatrix7 / HotKids（apple），说明见 [rules/README.md](rules/README.md)。
+
+Apple 两份要配对使用：**Download 在前，Services 在后**（Services 带 `apple.com` 兜底），详见 [rules/apple/README.md](rules/apple/README.md)。
 
 ## 模块
 
