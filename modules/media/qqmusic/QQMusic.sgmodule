@@ -1,0 +1,19 @@
+#!name=QQ音乐签到（绿钻·金币·任务）
+#!desc=QQ音乐绿钻成长值、金币中心签到、App 每日任务与金币抽奖、红包雨。先打开 QQ音乐「我的 → 会员中心」或「金币中心 → 每日签到」抓一次 Cookie，之后挂代理即可：cron 自动续期、签到、做任务、领奖。07:30 跑全流程，09–10 点每分钟检查定时金币，红包雨六个时段各跑一次。
+#!category=签到
+#!author=MaYIHEI（脚本）/ Konoha-Naruto（模块封装）
+#!homepage=https://github.com/MaYIHEI/paperclip/tree/main/app/qqmusic
+#!icon=https://raw.githubusercontent.com/MaYIHEI/pin/refs/heads/main/app/qqmusic.png
+#!date=2026-11-12
+#!system=ios
+#!arguments=getck:true
+#!arguments-desc=抓取 Cookie 开关：true 抓包（默认）；抓到 Cookie 后改成 false，请求脚本直接放行 —— 不拦截、不读 body、不发通知。定时任务不受此开关影响
+
+[Script]
+QQ音乐 Cookie = type=http-request,pattern=^https:\/\/u6\.y\.qq\.com\/cgi-bin\/musics\.fcg\?.*(EveryDaySignLvzScore|GetSignInSummary),requires-body=true,script-path=https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/media/qqmusic/qqmusic.js,argument="getck={{{getck}}}",img-url=https://raw.githubusercontent.com/MaYIHEI/pin/refs/heads/main/app/qqmusic.png
+QQ音乐每日任务 = type=cron,cronexp="30 7 * * *",timeout=1200,script-path=https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/media/qqmusic/qqmusic.js,img-url=https://raw.githubusercontent.com/MaYIHEI/pin/refs/heads/main/app/qqmusic.png
+QQ音乐定时金币 = type=cron,cronexp="* 9-10 * * *",timeout=1200,script-path=https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/media/qqmusic/qqmusic.js,img-url=https://raw.githubusercontent.com/MaYIHEI/pin/refs/heads/main/app/qqmusic.png
+QQ音乐红包雨 = type=cron,cronexp="5 0,8,12,16,20,22 * * *",timeout=1200,script-path=https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/media/qqmusic/qqmusic.js,img-url=https://raw.githubusercontent.com/MaYIHEI/pin/refs/heads/main/app/qqmusic.png
+
+[MITM]
+hostname = %APPEND% u6.y.qq.com
