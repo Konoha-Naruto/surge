@@ -1,0 +1,33 @@
+#!name=番茄小说去广告
+#!desc=拦截番茄相关日志、监控、短链及激励广告域名；保留番茄 API、封面与短剧域名。按用户提供的已验证规则原样打包。
+
+[Rule]
+# >> FanQie verified domain block (verified by match_rule on device)
+DOMAIN,i-lq.snssdk.com,REJECT
+DOMAIN,security-lq.snssdk.com,REJECT
+DOMAIN,tnc3-alisc1.snssdk.com,REJECT
+DOMAIN,tnc3-aliec2.snssdk.com,REJECT
+DOMAIN,vas-lf-x.snssdk.com,REJECT
+DOMAIN,sf3-ttcdn-tos.pstatp.com,REJECT
+DOMAIN-SUFFIX,byteorge.com,REJECT
+DOMAIN-SUFFIX,bytegoofy.com,REJECT
+DOMAIN-SUFFIX,ecombdapi.com,REJECT
+DOMAIN-SUFFIX,ecombdimg.com,REJECT
+DOMAIN,gurd.snssdk.com,REJECT
+# << FanQie verified domain block
+
+# >> FanQie verified block (added by DSH via Surge MCP, 2026-11-12)
+# 修复：不再用 -lf/-lq/-hl 后缀总闸（会误杀 api*-normal-*.fqnovel.com 主接口）
+# 只拦日志/监控/短链/激励广告，保留 番茄 API、封面(fqnovelpic/novel.byteimg)、短剧(fqnovelvod)
+DOMAIN-SUFFIX,ugsdk.cn,REJECT-DROP
+DOMAIN-SUFFIX,bdurl.net,REJECT-DROP
+DOMAIN-SUFFIX,zjurl.cn,REJECT-DROP
+DOMAIN-SUFFIX,byteurl.cn,REJECT-DROP
+DOMAIN-KEYWORD,-reward-,REJECT-DROP
+DOMAIN-WILDCARD,log*-applog*.fqnovel.com,REJECT-DROP
+DOMAIN-WILDCARD,rtlog*-applog*.fqnovel.com,REJECT-DROP
+DOMAIN-WILDCARD,mon*-misc*.fqnovel.com,REJECT-DROP
+AND,((DOMAIN-SUFFIX,bytegecko.com),(DOMAIN-KEYWORD,-tos)),REJECT-DROP
+AND,((OR,((DOMAIN-KEYWORD,-bjlgy),(DOMAIN-KEYWORD,frontier-aweme))),(DOMAIN-SUFFIX,snssdk.com)),REJECT-DROP
+AND,((DOMAIN-SUFFIX,douyin.com),(DOMAIN-KEYWORD,-open-lf)),REJECT-DROP
+# << FanQie verified block
