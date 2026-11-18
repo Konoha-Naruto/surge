@@ -1,0 +1,15 @@
+#!name=PingMe自动签到
+#!desc=😀 PingMe 每日签到 + 视频奖励 | 🤫 自动抓取签到参数（每次运行随机设备 ID）| 原作者 @ZenMoFiShi / 怎么肥事 / 奶思，Egern 版 mickeu，此为 Surge 移植版
+#!system=ios
+#!arguments=PROXY:DIRECT,CRON:30 8 * * *,PINGME_CAPTURE:true
+#!arguments-desc=PROXY：api.pingmeapp.net 走哪条策略（DIRECT 或你的策略组名，Surge 对模块规则策略有限制，报错就保持 DIRECT）；CRON：定时表达式，默认每天 08:30，想恢复原来一天两次填 30 8,20 * * *；PINGME_CAPTURE：抓参开关，抓完可设 false 省电
+
+[Rule]
+DOMAIN,api.pingmeapp.net,{{{PROXY}}}
+
+[MITM]
+hostname = %APPEND% api.pingmeapp.net
+
+[Script]
+PingMe签到 = type=cron,cronexp="{{{CRON}}}",timeout=300,wake-system=true,script-update-interval=3600,script-path=https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/tools/pingme-checkin/checkin.js
+PingMe获取签到参数 = type=http-request,pattern=^https:\/\/api\.pingmeapp\.net\/app\/queryBalanceAndBonus,requires-body=false,timeout=60,argument={{{PINGME_CAPTURE}}},script-update-interval=3600,script-path=https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/tools/pingme-checkin/capture.js
