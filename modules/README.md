@@ -5,6 +5,7 @@
 | 属性 | 目录 | 模块 | 说明 |
 |---|---|---|---|
 | media | [`media/qqmusic/`](media/qqmusic/) | `QQMusic.sgmodule` + `qqmusic.js` | QQ音乐：绿钻成长值签到、金币中心签到、App 每日任务、金币抽奖、红包雨；参数 `getck` 控制是否抓 Cookie |
+| media | [`media/bodian-music/`](media/bodian-music/) | `BodianMusic.sgmodule` + `bdyy.js` | 波点音乐：会员标识、无损/付费专辑下载、付费专辑解锁、开屏/横幅/悬浮广告与商城 Tab 移除（纯 body 改写，无参数） |
 | tools | [`tools/maimemo-capture/`](tools/maimemo-capture/) | `maimemo-capture.sgmodule` + `capture.js` | 墨墨背单词请求抓包，只记录不改包 |
 | tools | [`tools/pingme-checkin/`](tools/pingme-checkin/) | `PingMe.sgmodule` + `checkin.js` + `capture.js` | PingMe 每日签到 + 视频奖励，自动抓取签到参数（每次随机设备 ID）；参数 `PROXY` / `CRON` / `PINGME_CAPTURE` |
 | monitor | [`monitor/vps/`](monitor/vps/) | `vps_monitor.sgmodule` + `vps_panel.js` + 服务端 | VPS 面板：CPU / 内存 / 磁盘 / 月流量 / 运行时长 |
@@ -14,6 +15,9 @@
 ```
 # QQ音乐签到
 https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/media/qqmusic/QQMusic.sgmodule
+
+# 波点音乐
+https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/media/bodian-music/BodianMusic.sgmodule
 
 # 墨墨抓包
 https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/tools/maimemo-capture/maimemo-capture.sgmodule
