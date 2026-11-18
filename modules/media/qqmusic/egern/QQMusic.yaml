@@ -1,0 +1,35 @@
+name: 'QQ音乐签到（Egern 原生）'
+description: '绿钻成长值、金币签到、每日任务、定时金币及红包雨。首次开启 MITM 并打开 QQ 音乐签到页，获取登录态后可关闭 getck。'
+author: 'MaYIHEI / Konoha-Naruto / Egern 适配'
+homepage: 'https://github.com/MaYIHEI/paperclip/tree/main/app/qqmusic'
+icon: 'music.note'
+compat_arguments:
+  getck: 'true'
+compat_arguments_desc: 'getck：首次使用设为 true，收到成功通知后可设为 false。'
+scriptings:
+  - http_request:
+      name: 'QQ音乐 Cookie'
+      match: '^https://u6\.y\.qq\.com/cgi-bin/musics\.fcg\?.*(EveryDaySignLvzScore|GetSignInSummary)'
+      script_url: 'https://raw.githubusercontent.com/Konoha-Naruto/surge/egern-qqmusic/modules/media/qqmusic/egern/qqmusic-egern.js'
+      body_required: true
+      timeout: 10
+      env:
+        GETCK: '{{{getck}}}'
+  - schedule:
+      name: 'QQ音乐每日任务'
+      cron: '30 7 * * *'
+      script_url: 'https://raw.githubusercontent.com/Konoha-Naruto/surge/egern-qqmusic/modules/media/qqmusic/egern/qqmusic-egern.js'
+      timeout: 600
+  - schedule:
+      name: 'QQ音乐定时金币'
+      cron: '* 9-10 * * *'
+      script_url: 'https://raw.githubusercontent.com/Konoha-Naruto/surge/egern-qqmusic/modules/media/qqmusic/egern/qqmusic-egern.js'
+      timeout: 600
+  - schedule:
+      name: 'QQ音乐红包雨'
+      cron: '5 0,8,12,16,20,22 * * *'
+      script_url: 'https://raw.githubusercontent.com/Konoha-Naruto/surge/egern-qqmusic/modules/media/qqmusic/egern/qqmusic-egern.js'
+      timeout: 600
+mitm:
+  hostnames:
+    - 'u6.y.qq.com'
