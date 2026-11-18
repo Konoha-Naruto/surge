@@ -39,6 +39,7 @@ Apple 两份要配对使用：**Download 在前，Services 在后**（Services �
 |---|---|---|
 | media | [qqmusic](modules/media/qqmusic/) | QQ音乐绿钻 / 金币 / 每日任务 / 红包雨签到，参数 `getck` 控制是否抓 Cookie |
 | tools | [maimemo-capture](modules/tools/maimemo-capture/) | 墨墨签到请求抓包（只记录不改包） |
+| tools | [pingme-checkin](modules/tools/pingme-checkin/) | PingMe 每日签到 + 视频奖励，自动抓参（参数 `PROXY` / `CRON` / `PINGME_CAPTURE`） |
 | monitor | [vps](modules/monitor/vps/) | VPS CPU / 内存 / 磁盘 / 流量面板（附采集端与部署脚本） |
 
 安装地址规律：
@@ -51,6 +52,7 @@ https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/<属性>/<模
 |---|---|
 | QQ音乐签到 | https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/media/qqmusic/QQMusic.sgmodule |
 | 墨墨抓包 | https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/tools/maimemo-capture/maimemo-capture.sgmodule |
+| PingMe自动签到 | https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/tools/pingme-checkin/PingMe.sgmodule |
 | VPS 监控 | https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/monitor/vps/vps_monitor.sgmodule |
 
 ## 约定
