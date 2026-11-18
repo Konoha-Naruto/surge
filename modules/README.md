@@ -6,6 +6,7 @@
 |---|---|---|---|
 | media | [`media/qqmusic/`](media/qqmusic/) | `QQMusic.sgmodule` + `qqmusic.js` | QQ音乐：绿钻成长值签到、金币中心签到、App 每日任务、金币抽奖、红包雨；参数 `getck` 控制是否抓 Cookie |
 | tools | [`tools/maimemo-capture/`](tools/maimemo-capture/) | `maimemo-capture.sgmodule` + `capture.js` | 墨墨背单词请求抓包，只记录不改包 |
+| tools | [`tools/pingme-checkin/`](tools/pingme-checkin/) | `PingMe.sgmodule` + `checkin.js` + `capture.js` | PingMe 每日签到 + 视频奖励，自动抓取签到参数（每次随机设备 ID）；参数 `PROXY` / `CRON` / `PINGME_CAPTURE` |
 | monitor | [`monitor/vps/`](monitor/vps/) | `vps_monitor.sgmodule` + `vps_panel.js` + 服务端 | VPS 面板：CPU / 内存 / 磁盘 / 月流量 / 运行时长 |
 
 ## 安装地址
@@ -16,6 +17,9 @@ https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/media/qqmusic
 
 # 墨墨抓包
 https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/tools/maimemo-capture/maimemo-capture.sgmodule
+
+# PingMe 自动签到
+https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/tools/pingme-checkin/PingMe.sgmodule
 
 # VPS 监控（需先在服务器跑 modules/monitor/vps/install.sh）
 https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/monitor/vps/vps_monitor.sgmodule
