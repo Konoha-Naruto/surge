@@ -45,6 +45,7 @@ Apple 两份要配对使用：**Download 在前，Services 在后**（Services �
 | tools | [pingme-checkin](modules/tools/pingme-checkin/) | PingMe 每日签到 + 视频奖励，自动抓参（参数 `PROXY` / `CRON` / `PINGME_CAPTURE`） |
 | ads | [dazhong-pingqiu](modules/ads/dazhong-pingqiu/) | 大众评球广告位/开屏/夏玩 RTB 竞价清零，所有广告接口回 `{}` |
 | shopping | [jd](modules/shopping/jd/) | 京东首页/订单/物流/购物车/推荐位/工具箱去广告 + 慢慢买历史比价（Loon 插件移植） |
+| ads | [google](modules/ads/google/) | Google 广告/统计域名 REJECT 50 条（doubleclick、googlesyndication、admob、analytics、firebase），纯规则 |
 | monitor | [vps](modules/monitor/vps/) | VPS CPU / 内存 / 磁盘 / 流量面板（附采集端与部署脚本） |
 
 安装地址规律：
@@ -63,6 +64,7 @@ https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/<属性>/<模
 | 大众评球去广告 | https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/ads/dazhong-pingqiu/DazhongPingqiu.sgmodule |
 | 大众评球去广告(增强版) | https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/ads/dazhong-pingqiu/DazhongPingqiu-Enhanced.sgmodule |
 | 京东去广告+比价 | https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/shopping/jd/JD.sgmodule |
+| Google 去广告 | https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/ads/google/Google.sgmodule |
 
 ## 约定
 
