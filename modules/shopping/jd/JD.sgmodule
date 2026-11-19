@@ -1,0 +1,39 @@
+#!name=京东（去广告 + 历史比价）
+#!desc=1. 过滤京东广告（首页/订单/物流/我的/购物车/推荐位/工具箱）；2. 历史比价：慢慢买 Cookie 自动抓取 + 商品详情嵌入比价表。原始规则来自 Loon 插件「京东去广告.Ipx」(jadkg/egern)，作者 RuCu6 / Maasea / githubdulong / wf021325 / mw418 / 可莉。仅适配京东标准模式。
+#!author=Minis（Surge 移植）
+#!homepage=https://github.com/Konoha-Naruto/surge
+#!icon=https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/JingDong.png
+#!date=2026-11-19
+#!openUrl=https://apps.apple.com/app/id414245413
+
+[Rule]
+URL-REGEX,^http://\w{32}\.jddebug\.com/diagnose\?,REJECT
+
+[Map Local]
+# 开屏/启动图（Loon 原写 reject(200)）：直接回 200 空 body，App 不会重试
+^https?://m\.360buyimg\.com/mobilecms/s1125x2436_jfs data-type=text data="" status-code=200
+# 特殊登录入口 + 各类推荐位（Loon 原写 reject_dict(200)）：回空对象
+^https?://api\.m\.jd\.com/\?loginType=11 data-type=text data="{}" status-code=200
+^https?://api\.m\.jd\.com/client\.action\?functionId=(?:cartCouponRecommendGoods|intelligentRecommendSku|obtainGrowingInfo|recommendShop|searchBoxWord|stationPullService|uniformRecommend) data-type=text data="{}" status-code=200
+
+[Body Rewrite]
+http-response ^https://api\.m\.jd\.com/client\.action\?functionId=lite_advertising jdLiteAdvertisingVO sooyaaabo
+
+[Script]
+京东·移除广告 = type=http-response, pattern=^https://api\.m\.jd\.com/client\.action\?functionId=(?:deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome), requires-body=true, max-size=-1, timeout=60, script-path=https://raw.githubusercontent.com/jadkg/egern/refs/heads/main/jingdong.js
+京东·工具箱404 = type=http-request, pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=getWidgetV1052, timeout=10, argument=widget404, script-path=https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/shopping/jd/jd_patch.js
+京东·基础配置 = type=http-response, pattern=^https://api\.m\.jd\.com/client\.action\?functionId=basicConfig, requires-body=true, max-size=-1, timeout=10, argument=basicconfig, script-path=https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/shopping/jd/jd_patch.js
+京东·购物车 = type=http-response, pattern=^https://api\.m\.jd\.com/client\.action\?functionId=cart, requires-body=true, max-size=-1, timeout=10, argument=cart, script-path=https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/shopping/jd/jd_patch.js
+
+# ---- 比价：Cookie 抓取（默认启用，首次先打开【慢慢买 App-我的】提示「获取ck成功🎉」）----
+京东比价·抓Cookie = type=http-request, pattern=^https?://apapia-sqk-weblogic\.manmanbuy\.com/baoliao/center/menu$, requires-body=true, timeout=60, script-path=https://raw.githubusercontent.com/mw418/Loon/main/script/jd_price.js
+
+# ---- 比价：三种展示方式互斥，默认只开「详情嵌入（表格图）」 ----
+# 要换模式：把下面想用的那条前面的 # 去掉，同时给正在用的那条加 #，然后重新安装/更新模块。
+京东比价·详情嵌入表格 = type=http-response, pattern=^https?://in\.m\.jd\.com/product/graphext/\d+\.html, requires-body=true, max-size=-1, timeout=60, script-path=https://raw.githubusercontent.com/wf021325/qx/master/js/jd_price.js
+# 京东比价·标题嵌入 = type=http-response, pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=(?:wareBusiness|serverConfig|basicConfig), requires-body=true, max-size=-1, timeout=60, script-path=https://raw.githubusercontent.com/wf021325/qx/master/js/jd_price.js
+# 京东比价·详情通知 = type=http-request, pattern=^https?://in\.m\.jd\.com/product/graphext/\d+\.html, timeout=60, script-path=https://raw.githubusercontent.com/mw418/Loon/main/script/jd_price.js
+# 京东比价·详情嵌入折线 = 原插件指向 https://loon.103516.xyz/Script/JingDong/JingDong.price.js ，该地址已 302 跳转到 https://t.me/BoStudioHub ，脚本已下线，此处不再提供
+
+[MITM]
+hostname = %APPEND% api.m.jd.com, in.m.jd.com, apapia-sqk-weblogic.manmanbuy.com, m.360buyimg.com
