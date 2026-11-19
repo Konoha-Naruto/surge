@@ -8,6 +8,7 @@
 │   └── media/            流媒体 / 内容平台分流规则（RULE-SET 订阅的 .list）
 └── modules/
     ├── media/            媒体：会员签到、任务
+    ├── ads/              广告：App 广告位/竞价拦截
     ├── tools/            工具：抓包、调试
     └── monitor/          监控：面板（含服务端采集脚本）
 ```
@@ -41,6 +42,7 @@ Apple 两份要配对使用：**Download 在前，Services 在后**（Services �
 | media | [bodian-music](modules/media/bodian-music/) | 波点音乐会员标识、无损/付费专辑下载与解锁、开屏/横幅/悬浮广告与商城 Tab 移除（纯 body 改写，无参数） |
 | tools | [maimemo-capture](modules/tools/maimemo-capture/) | 墨墨签到请求抓包（只记录不改包） |
 | tools | [pingme-checkin](modules/tools/pingme-checkin/) | PingMe 每日签到 + 视频奖励，自动抓参（参数 `PROXY` / `CRON` / `PINGME_CAPTURE`） |
+| ads | [dazhong-pingqiu](modules/ads/dazhong-pingqiu/) | 大众评球广告位/开屏/夏玩 RTB 竞价清零，所有广告接口回 `{}` |
 | monitor | [vps](modules/monitor/vps/) | VPS CPU / 内存 / 磁盘 / 流量面板（附采集端与部署脚本） |
 
 安装地址规律：
@@ -56,6 +58,8 @@ https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/<属性>/<模
 | 墨墨抓包 | https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/tools/maimemo-capture/maimemo-capture.sgmodule |
 | PingMe自动签到 | https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/tools/pingme-checkin/PingMe.sgmodule |
 | VPS 监控 | https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/monitor/vps/vps_monitor.sgmodule |
+| 大众评球去广告 | https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/ads/dazhong-pingqiu/DazhongPingqiu.sgmodule |
+| 大众评球去广告(增强版) | https://raw.githubusercontent.com/Konoha-Naruto/surge/main/modules/ads/dazhong-pingqiu/DazhongPingqiu-Enhanced.sgmodule |
 
 ## 约定
 

@@ -1,0 +1,19 @@
+#!name=大众评球去广告
+#!desc=大众评球广告位清零：广告位配置、dsocial ad_config、夏玩 RTB 竞价统一回空对象。装后清缓存或重装 App 生效。
+#!author=sliverkiss / FJ
+#!date=2026-11-19
+#!homepage=https://github.com/QingRex/LoonKissSurge
+
+[Map Local]
+# 广告位配置 → 空对象
+^https:\/\/api\.wxcjgg\.cn\/ad\/map data-type=text data="{}" status-code=200
+
+# dsocial 广告配置
+^http:\/\/api-tx\.dsocial\.xyz\/api\/v2\/ad_config data-type=text data="{}" status-code=200
+
+# 夏玩 RTB 实时竞价（mid=426 / slot=36297872）：回空对象 no-bid，SDK 一次握手即放弃，
+# 相比 REJECT 的 RST 无重试、无网络错误日志
+^https?:\/\/fg\.xiawan8\.com\/rtb data-type=text data="{}" status-code=200
+
+[MITM]
+hostname = %APPEND% api.wxcjgg.cn, api-tx.dsocial.xyz, fg.xiawan8.com

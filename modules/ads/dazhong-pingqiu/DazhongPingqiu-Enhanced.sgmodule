@@ -1,0 +1,21 @@
+#!name=大众评球去广告(增强版)
+#!desc=合并 QingRex/sliverkiss 专用模块 + gys619 开屏广告集（dsocial 全部 ad_ 接口）+ 夏玩 RTB 竞价拦截。装后清缓存或重装 App 生效。
+#!author=FJ 合并
+#!date=2026-11-19
+#!homepage=https://github.com/QingRex/LoonKissSurge
+
+[Map Local]
+# 广告位配置接口 → 返回空对象，App 拿不到广告素材
+^https:\/\/api\.wxcjgg\.cn\/ad\/map data-type=text data="{}" status-code=200
+
+# dsocial 精确端点（专用模块原版）
+^http:\/\/api-tx\.dsocial\.xyz\/api\/v2\/ad_config data-type=text data="{}" status-code=200
+
+# dsocial 全量 ad_ 系列（合集模块写法，覆盖 ad_config/ad_list/ad_* 后续改名）
+^https?:\/\/api-tx\.dsocial\.xyz\/api\/.*\/ad_ data-type=text data=" " status-code=200
+
+# 夏玩 RTB 实时竞价（mid=426 / slot=36297872）：回空对象 no-bid
+^https?:\/\/fg\.xiawan8\.com\/rtb data-type=text data="{}" status-code=200
+
+[MITM]
+hostname = %APPEND% api.wxcjgg.cn, api-tx.dsocial.xyz, fg.xiawan8.com
